@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head></head>
+    <body>
+        <h1>courses:</h1>
+        <ul>
+            {% for c in courses %}
+                <li>{{c.name}}</li>
+            {% endfor %}
+        </ul>
+        <h1>Add course</h1>
+        <form method="POST">
+            {% csrf_token %}
+            course name: <input type="text" name="name">
+            <button type="submit">Add</button>
+        </form>
+        <br/>
+
+        <button><a href="{% url 'students' %}">Add Students</a></button>
+        
+        
+    </body>
+</html>

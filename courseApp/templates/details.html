@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head></head>
+    <body>
+        <h1>Student name:</h1>{{student.first}} {{student.last}} gpa:{{student.gpa}}
+        <h2>courses:</h2>
+        <ul>
+            {% for cu in Student.courses.all %}
+                <li>{{cu.name}}</li>
+            {% endfor %}
+
+        </ul>
+        <h2>select course</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <select name="course" id="notIn.id">
+                {% for c in notIn %}
+                    <option value="{{c.id}}">{{c}}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Add</button>
+        </form>
+        <br/>
+
+        <button><a href="{% url 'students' %}">Add Students</a></button>
+        <br/>
+        <button><a href="{% url 'courses' %}">Add Courses</a></button>
+    </body>
+</html>

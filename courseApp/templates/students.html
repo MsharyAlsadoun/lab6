@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head></head>
+    <body>
+        <h1>students:<h1>
+        <ul>
+            {% for stu in students  %}
+                <li>name: {{stu.first}} {{stu.last}}</li> 
+            {% endfor %}
+        </ul>
+        
+
+        <h1>add student</h1>
+        <form method="POST">
+            {% csrf_token %}
+            first name : <input type="text" name="first">
+            last name : <input type="text" name="last">
+            gpa: <input type="text" name="gpa">
+            <button type="submit">Add</button>
+        </form>
+        <br/><br/>
+
+        
+        <button><a href="{% url 'courses' %}">Add Courses</a></button>
+    </body>
+    
+</html>
